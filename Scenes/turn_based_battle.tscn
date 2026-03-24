@@ -1,0 +1,265 @@
+[gd_scene format=3 uid="uid://bih86mj01ceo2"]
+
+[ext_resource type="Script" uid="uid://dh46ytyjddkit" path="res://Scenes/turn_based_battle.gd" id="1_rtk7i"]
+[ext_resource type="Script" uid="uid://4i20psdpqjpe" path="res://Scenes/state_machine.gd" id="2_76p75"]
+[ext_resource type="Script" uid="uid://he8m4c0mtb7r" path="res://Scenes/player_turn.gd" id="3_1uw71"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uw71"]
+bg_color = Color(0.9411765, 0.35686275, 0.3019608, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76p75"]
+bg_color = Color(0.53583336, 0.08743044, 0.19350854, 1)
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nty0"]
+bg_color = Color(0.9399591, 0.3563362, 0.3027515, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtk7i"]
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_76p75"]
+font_size = 20
+outline_size = 14
+outline_color = Color(0, 0, 0, 1)
+
+[node name="TurnBasedBattle" type="Control" unique_id=1427612918]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rtk7i")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerAttackUI" type="CanvasLayer" parent="." unique_id=226883700]
+follow_viewport_enabled = true
+
+[node name="PanelContainer" type="MarginContainer" parent="PlayerAttackUI" unique_id=1675660737]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+
+[node name="TurnbasedButtons" type="HBoxContainer" parent="PlayerAttackUI/PanelContainer" unique_id=1693862572]
+custom_minimum_size = Vector2(1500, 180)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="AttackButton" type="Button" parent="PlayerAttackUI/PanelContainer/TurnbasedButtons" unique_id=453245896]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_1uw71")
+theme_override_styles/focus = SubResource("StyleBoxFlat_76p75")
+button_mask = 0
+text = "Attack"
+
+[node name="AttackButton2" type="Button" parent="PlayerAttackUI/PanelContainer/TurnbasedButtons" unique_id=1914527162]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1uw71")
+theme_override_styles/focus = SubResource("StyleBoxFlat_76p75")
+button_mask = 0
+text = "Attack 2"
+
+[node name="Defend" type="Button" parent="PlayerAttackUI/PanelContainer/TurnbasedButtons" unique_id=82585977]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1uw71")
+theme_override_styles/focus = SubResource("StyleBoxFlat_76p75")
+button_mask = 0
+text = "Defend"
+
+[node name="Dodge" type="Button" parent="PlayerAttackUI/PanelContainer/TurnbasedButtons" unique_id=1010347585]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1uw71")
+theme_override_styles/focus = SubResource("StyleBoxFlat_76p75")
+button_mask = 0
+text = "Dodge"
+
+[node name="Item" type="Button" parent="PlayerAttackUI/PanelContainer/TurnbasedButtons" unique_id=656762109]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1uw71")
+theme_override_styles/focus = SubResource("StyleBoxFlat_76p75")
+button_mask = 0
+text = "Item
+"
+
+[node name="Select" type="VBoxContainer" parent="PlayerAttackUI/PanelContainer" unique_id=2033414114]
+custom_minimum_size = Vector2(600, 430)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Option1" type="Button" parent="PlayerAttackUI/PanelContainer/Select" unique_id=590882761]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5nty0")
+text = "Option 1"
+
+[node name="Option2" type="Button" parent="PlayerAttackUI/PanelContainer/Select" unique_id=1873935317]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5nty0")
+text = "Option 2
+"
+
+[node name="Option3" type="Button" parent="PlayerAttackUI/PanelContainer/Select" unique_id=427400941]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5nty0")
+text = "Option 3
+"
+
+[node name="Option4" type="Button" parent="PlayerAttackUI/PanelContainer/Select" unique_id=1896139706]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5nty0")
+text = "Exit
+"
+
+[node name="PlayersAndEnemies" type="HBoxContainer" parent="PlayerAttackUI/PanelContainer" unique_id=1678381472]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="Players" type="VBoxContainer" parent="PlayerAttackUI/PanelContainer/PlayersAndEnemies" unique_id=1822661090]
+custom_minimum_size = Vector2(640, 800)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 46
+alignment = 1
+
+[node name="Friendly1" type="TextureRect" parent="PlayerAttackUI/PanelContainer/PlayersAndEnemies/Players" unique_id=198823346]
+custom_minimum_size = Vector2(320, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 6
+flip_h = true
+
+[node name="Friendly2" type="TextureRect" parent="PlayerAttackUI/PanelContainer/PlayersAndEnemies/Players" unique_id=603779376]
+custom_minimum_size = Vector2(320, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 6
+flip_h = true
+
+[node name="Friendly3" type="TextureRect" parent="PlayerAttackUI/PanelContainer/PlayersAndEnemies/Players" unique_id=878587207]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 2
+flip_h = true
+
+[node name="Filler" type="VBoxContainer" parent="PlayerAttackUI/PanelContainer/PlayersAndEnemies" unique_id=114772208]
+custom_minimum_size = Vector2(640, 800)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 46
+
+[node name="Enemies" type="VBoxContainer" parent="PlayerAttackUI/PanelContainer/PlayersAndEnemies" unique_id=961589898]
+custom_minimum_size = Vector2(640, 800)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 46
+
+[node name="Enem1" type="TextureRect" parent="PlayerAttackUI/PanelContainer/PlayersAndEnemies/Enemies" unique_id=1639904925]
+custom_minimum_size = Vector2(320, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="Enem2" type="TextureRect" parent="PlayerAttackUI/PanelContainer/PlayersAndEnemies/Enemies" unique_id=530347566]
+custom_minimum_size = Vector2(320, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="Enem3" type="TextureRect" parent="PlayerAttackUI/PanelContainer/PlayersAndEnemies/Enemies" unique_id=268592903]
+custom_minimum_size = Vector2(320, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="ActionDisplayer" type="Label" parent="PlayerAttackUI" unique_id=1395332862]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+offset_left = 3.0
+offset_top = 372.0
+offset_right = 1155.0
+offset_bottom = 472.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtk7i")
+text = "Battle"
+label_settings = SubResource("LabelSettings_76p75")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=1233599792]
+script = ExtResource("2_76p75")
+InitialState = ExtResource("3_1uw71")
+
+[node name="PlayerTurn" type="Node" parent="StateMachine" unique_id=655051122]
+script = ExtResource("3_1uw71")
+
+[node name="ButtonPressed" type="Timer" parent="StateMachine/PlayerTurn" unique_id=1478883719]
+wait_time = 0.45
+one_shot = true
+
+[node name="EnemyAction" type="Node" parent="StateMachine" unique_id=1993493594]
+
+[node name="Win" type="Node" parent="StateMachine" unique_id=746371670]
+
+[node name="Lose" type="Node" parent="StateMachine" unique_id=1625233233]
+
+[node name="PlayersAndEnemyPhysical" type="Node" parent="." unique_id=275033361]
+
+[node name="Players" type="Node" parent="PlayersAndEnemyPhysical" unique_id=1434142334]
+
+[node name="Enemies" type="Node" parent="PlayersAndEnemyPhysical" unique_id=1413545027]
+
+[connection signal="pressed" from="PlayerAttackUI/PanelContainer/TurnbasedButtons/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="timeout" from="StateMachine/PlayerTurn/ButtonPressed" to="StateMachine/PlayerTurn" method="_on_button_pressed_timeout"]

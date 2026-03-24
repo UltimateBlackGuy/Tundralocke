@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://do2q5g3w72pm5"]
+
+[ext_resource type="Script" uid="uid://c70m1cum3602t" path="res://scripts/creatureScrilpts/alurian_friend.gd" id="1_2qybg"]
+[ext_resource type="Texture2D" uid="uid://bgkh1pjiuyk7v" path="res://PlaceHolderSprites/testalurian1.png" id="2_r3sbt"]
+
+[node name="AlurianFriend" type="CharacterBody2D" unique_id=1363987344]
+script = ExtResource("1_2qybg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2030559439]
+texture = ExtResource("2_r3sbt")

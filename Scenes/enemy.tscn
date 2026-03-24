@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dj86psdu4xj88"]
+
+[ext_resource type="Script" uid="uid://cs0g6nce207wa" path="res://Scenes/enemy.gd" id="1_hghv2"]
+[ext_resource type="Texture2D" uid="uid://1i1bpraqncgl" path="res://PlaceHolderSprites/testalurian2.png" id="2_1f0kj"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1193233429]
+script = ExtResource("1_hghv2")
+health = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1958939482]
+editor_description = "idfk"
+texture = ExtResource("2_1f0kj")
