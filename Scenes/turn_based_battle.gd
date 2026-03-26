@@ -1,5 +1,7 @@
 extends Control
 
+var balls
+
 @onready var BattleManager = $StateMachine
 @onready var Buttons = $PlayerAttackUI/PanelContainer/TurnbasedButtons
 @onready var Options = $PlayerAttackUI/PanelContainer/Select
