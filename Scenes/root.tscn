@@ -1,9 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5s05uuwlbbo5"]
+[gd_scene format=3 uid="uid://c5s05uuwlbbo5"]
 
 [ext_resource type="PackedScene" uid="uid://d3gtcgn33n0t5" path="res://Scenes/player.tscn" id="1_i04dx"]
+[ext_resource type="Texture2D" uid="uid://cma7udcmejt3l" path="res://PlaceHolderSprites/TileSheet-Sheet.png" id="2_8pvmw"]
 
-[node name="Root" type="Node"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vnucn"]
+texture = ExtResource("2_8pvmw")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
 
-[node name="TestLevel" type="Node2D" parent="."]
+[sub_resource type="TileSet" id="TileSet_c3mwy"]
+tile_size = Vector2i(32, 32)
+navigation_layer_0/layers = 3
+sources/0 = SubResource("TileSetAtlasSource_vnucn")
 
-[node name="Player" parent="." instance=ExtResource("1_i04dx")]
+[node name="Root" type="Node" unique_id=1082828093]
+
+[node name="TestLevel" type="Node2D" parent="." unique_id=1394238342]
+
+[node name="Player" parent="." unique_id=1111680762 instance=ExtResource("1_i04dx")]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=2066034600]
+tile_set = SubResource("TileSet_c3mwy")
+rendering_quadrant_size = 1
+format = 2
