@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dtl05i72supa3"]
+
+[ext_resource type="Script" uid="uid://fuhde0cxinmf" path="res://noise.gd" id="1_sy5k4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j2q8x"]
+noise_type = 0
+frequency = 0.05
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_112p8"]
+width = 1920
+height = 1080
+noise = SubResource("FastNoiseLite_j2q8x")
+seamless_blend_skirt = 0.0
+
+[node name="Node" type="Node" unique_id=1766236844]
+
+[node name="Noise" type="Sprite2D" parent="." unique_id=2132497242]
+position = Vector2(960.00305, 540.00024)
+scale = Vector2(0.99999684, 0.9999996)
+texture = SubResource("NoiseTexture2D_112p8")
+script = ExtResource("1_sy5k4")
