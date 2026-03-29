@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dxvo5ukfb363"]
+
+[ext_resource type="Texture2D" uid="uid://cma7udcmejt3l" path="res://PlaceHolderSprites/TileSheet-Sheet.png" id="1_boltm"]
+[ext_resource type="Script" uid="uid://fscby0msaffg" path="res://procedural_generation.gd" id="2_4exj2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fraw"]
+texture = ExtResource("1_boltm")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2xe70"]
+sources/0 = SubResource("TileSetAtlasSource_1fraw")
+
+[node name="ProceduralGeneration" type="Node2D" unique_id=674379477]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1599107746]
+tile_set = SubResource("TileSet_2xe70")
+format = 2
+script = ExtResource("2_4exj2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TileMap" unique_id=977973444]
+
+[node name="Button" type="Button" parent="." unique_id=1155703405]
+offset_right = 640.0
+offset_bottom = 48.0
