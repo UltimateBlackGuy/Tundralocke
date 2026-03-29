@@ -22,7 +22,7 @@ func _initialize_noise():
 	moisture.seed = randi()
 	temperature.seed = randi()
 	altitude.seed = randi()
-
+#yo this is fire nice job papi
 func generate_chunk():
 	var tile_pos = local_to_map(Vector2(0,0))
 	for x in range(width):

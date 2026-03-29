@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Alurian
+
 
 @export var health: int
 @export var power: int

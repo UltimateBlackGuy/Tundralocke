@@ -1,11 +1,22 @@
 [gd_scene format=3 uid="uid://dj86psdu4xj88"]
 
+[ext_resource type="Script" uid="uid://76bgxl621je3" path="res://Scenes/testEnemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://bkugfr6fqjr7t" path="res://PlaceHolderSprites/TestAlurianPerson.png" id="1_hghv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]
 radius = 15.033297
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_afpow"]
+radius = 65.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_287tu"]
+radius = 136.01471
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1179272460]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_1f0kj")
+speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1888318202]
 position = Vector2(2, 2)
@@ -14,3 +25,25 @@ shape = SubResource("CircleShape2D_hghv2")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1845073103]
 texture_filter = 1
 texture = ExtResource("1_hghv2")
+
+[node name="Navigation" type="Node2D" parent="." unique_id=2046738823]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation" unique_id=1330136578]
+
+[node name="RecalcNavigation" type="Timer" parent="Navigation" unique_id=873681447]
+
+[node name="Aggro" type="Node2D" parent="." unique_id=860046449]
+
+[node name="AggroRange" type="Area2D" parent="Aggro" unique_id=95070180]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro/AggroRange" unique_id=1531140124]
+shape = SubResource("CircleShape2D_afpow")
+debug_color = Color(0.8755636, 0.32159114, 0.33297434, 0.41960785)
+
+[node name="DeAggroRange" type="Area2D" parent="Aggro" unique_id=1423811404]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro/DeAggroRange" unique_id=130607965]
+shape = SubResource("CircleShape2D_287tu")
+debug_color = Color(0.054797366, 0.65034443, 5.7756904e-07, 0.41960785)
+
+[connection signal="area_entered" from="Aggro/AggroRange" to="." method="_on_aggro_range_area_entered"]
