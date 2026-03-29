@@ -12,7 +12,7 @@ func _ready():
 	noise.frequency = 0.05
 	
 
-
+#ill try to add some tiles for you to work with tmmr - BlackGuy
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
