@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d3gtcgn33n0t5" path="res://Scenes/player.tscn" id="1_i04dx"]
 [ext_resource type="Texture2D" uid="uid://cma7udcmejt3l" path="res://PlaceHolderSprites/TileSheet-Sheet.png" id="2_8pvmw"]
+[ext_resource type="PackedScene" uid="uid://dj86psdu4xj88" path="res://Scenes/enemy.tscn" id="3_vnucn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8pvmw"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -34,6 +35,7 @@ sources/0 = SubResource("TileSetAtlasSource_vnucn")
 [node name="TestLevel" type="Node2D" parent="." unique_id=1394238342]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=2066034600]
+texture_filter = 1
 tile_set = SubResource("TileSet_c3mwy")
 rendering_quadrant_size = 1
 format = 2
@@ -45,3 +47,6 @@ speed = 200
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1464809896]
 position = Vector2(19, 81)
+
+[node name="Enemy" parent="." unique_id=1179272460 instance=ExtResource("3_vnucn")]
+position = Vector2(80, 14)
