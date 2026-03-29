@@ -16,7 +16,7 @@ seamless_blend_skirt = 0.0
 [node name="Node" type="Node" unique_id=1766236844]
 
 [node name="Noise" type="Sprite2D" parent="." unique_id=2132497242]
-position = Vector2(960.00305, 540.00024)
-scale = Vector2(0.99999684, 0.9999996)
+position = Vector2(15711, 8293.001)
+scale = Vector2(16.365622, 15.358334)
 texture = SubResource("NoiseTexture2D_112p8")
 script = ExtResource("1_sy5k4")
