@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://dj86psdu4xj88"]
 
-[ext_resource type="Script" uid="uid://cs0g6nce207wa" path="res://Scenes/enemy.gd" id="1_hghv2"]
-[ext_resource type="Texture2D" uid="uid://1i1bpraqncgl" path="res://PlaceHolderSprites/testalurian2.png" id="2_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://bkugfr6fqjr7t" path="res://PlaceHolderSprites/TestAlurianPerson.png" id="1_hghv2"]
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1193233429]
-script = ExtResource("1_hghv2")
-health = 10
+[sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]
+radius = 15.033297
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1958939482]
-editor_description = "idfk"
-texture = ExtResource("2_1f0kj")
+[node name="Enemy" type="CharacterBody2D" unique_id=1179272460]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1888318202]
+position = Vector2(2, 2)
+shape = SubResource("CircleShape2D_hghv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1845073103]
+texture_filter = 1
+texture = ExtResource("1_hghv2")
