@@ -13,10 +13,11 @@ radius = 65.0
 radius = 136.01471
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1179272460]
+light_mask = 4
+visibility_layer = 7
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_1f0kj")
-speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1888318202]
 position = Vector2(2, 2)
@@ -31,6 +32,8 @@ texture = ExtResource("1_hghv2")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation" unique_id=1330136578]
 
 [node name="RecalcNavigation" type="Timer" parent="Navigation" unique_id=873681447]
+wait_time = 0.1
+one_shot = true
 
 [node name="Aggro" type="Node2D" parent="." unique_id=860046449]
 
@@ -46,4 +49,6 @@ debug_color = Color(0.8755636, 0.32159114, 0.33297434, 0.41960785)
 shape = SubResource("CircleShape2D_287tu")
 debug_color = Color(0.054797366, 0.65034443, 5.7756904e-07, 0.41960785)
 
+[connection signal="timeout" from="Navigation/RecalcNavigation" to="." method="_on_recalc_navigation_timeout"]
 [connection signal="area_entered" from="Aggro/AggroRange" to="." method="_on_aggro_range_area_entered"]
+[connection signal="area_entered" from="Aggro/DeAggroRange" to="." method="_on_de_aggro_range_area_entered"]

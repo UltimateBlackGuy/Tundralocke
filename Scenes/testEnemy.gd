@@ -23,6 +23,19 @@ func _process(delta: float) -> void:
 	elif currentState == STATES.Chasing:
 		pass
 	
+
+func makePath(navAgent):
+	pass
+
 func _on_aggro_range_area_entered(area) -> void:
 	if area is Player or area is Alurian:
 		currentState = STATES.Chasing
+
+
+func _on_de_aggro_range_area_entered(area) -> void:
+	if area is Player or area is Alurian:
+		currentState = STATES.Wandering
+
+
+func _on_recalc_navigation_timeout() -> void:
+	pass # Replace with function body.
