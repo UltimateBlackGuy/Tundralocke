@@ -52,6 +52,7 @@ debug_color = Color(0.8755636, 0.32159114, 0.33297434, 0.41960785)
 shape = SubResource("CircleShape2D_287tu")
 debug_color = Color(0.054797366, 0.65034443, 5.7756904e-07, 0.41960785)
 
+[connection signal="velocity_computed" from="Navigation/NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Navigation/RecalcNavigation" to="." method="_on_recalc_navigation_timeout"]
 [connection signal="area_entered" from="Aggro/AggroRange" to="." method="_on_aggro_range_area_entered"]
 [connection signal="area_entered" from="Aggro/DeAggroRange" to="." method="_on_de_aggro_range_area_entered"]
