@@ -9,6 +9,8 @@ var currentState = STATES.Wandering
 @export var speed: int
 @export var NavAgent: NavigationAgent2D
 @export var wander_area: Area2D
+@export var Health: int
+@export var Type: StringName
 
 var target_node = null
 

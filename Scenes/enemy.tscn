@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dj86psdu4xj88"]
 
-[ext_resource type="Script" uid="uid://76bgxl621je3" path="res://Scenes/testEnemy.gd" id="1_1f0kj"]
+[ext_resource type="Script" uid="uid://76bgxl621je3" path="res://Scenes/EnemyBase.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://bkugfr6fqjr7t" path="res://PlaceHolderSprites/TestAlurianPerson.png" id="1_hghv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]

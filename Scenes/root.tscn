@@ -51,4 +51,4 @@ speed = 200
 position = Vector2(19, 81)
 
 [node name="Enemy" parent="." unique_id=1179272460 instance=ExtResource("3_vnucn")]
-position = Vector2(80, 14)
+position = Vector2(13, 198)
